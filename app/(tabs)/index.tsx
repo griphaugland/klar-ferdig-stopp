@@ -1,49 +1,63 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { HelloWave } from "@/components/HelloWave";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: "#FFFFFF", dark: "#1D3D47" }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
+          source={require("@/assets/images/klarferdigstopplogo-removebg.png")}
+          style={styles.Logo}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
+      }
+    >
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
+        {/*  <ThemedText type="subtitle">Step 1: Try it</ThemedText> */}
         <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
+          Er du klar til å gjøre en innsats for et{" "}
+          <ThemedText style={{ fontFamily: "OpenSansBold" }}>
+            bedre liv
+          </ThemedText>
+          ?
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+        {/*  <ThemedText type="subtitle">Step 2: Explore</ThemedText> */}
         <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
+          Vi kan ikke hjelpe deg med å holde deg borte fra avhengigheten din.
         </ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
+        {/* <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText> */}
         <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+          Men vi kan hjelpe deg med å holde styr på{" "}
+          <ThemedText style={{ fontFamily: "OpenSansBold" }}>
+            hvor langt du har kommet
+          </ThemedText>
+          .
+        </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.infoContainer}>
+        <ThemedText type="subtitle" style={styles.infoContainerHeader}>
+          Sånn funker det
+        </ThemedText>
+        <ThemedText style={styles.infoContainerText}>
+          Trykk på +-en og velg eller skriv inn din avhengighet.
+        </ThemedText>
+        <ThemedText style={styles.infoContainerText}>
+          Sjekk i appen eller legg til appens widget på hjemskjermen din for å
+          se hvor langt du har kommet.
+        </ThemedText>
+      </ThemedView>
+      <ThemedView>
+        <ThemedText type="subtitle" style={styles.infoContainerText}>
+          Oversikt:
         </ThemedText>
       </ThemedView>
     </ParallaxScrollView>
@@ -52,19 +66,38 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
+    fontFamily: "OpenSansSemiBold",
+    paddingHorizontal: 32,
     gap: 8,
     marginBottom: 8,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
+  infoContainer: {
+    marginTop: 16,
+    backgroundColor: "#094D69",
+    paddingHorizontal: 32,
+    paddingVertical: 16,
+  },
+  infoContainerHeader: {
+    color: "#FFFFFF",
+    marginBottom: 8,
+    fontFamily: "OpenSansExtraBold",
+  },
+
+  infoContainerText: {
+    color: "#FFFFFF",
+    marginBottom: 8,
+    fontFamily: "OpenSansSemiBold",
+  },
+  Logo: {
+    height: 110,
+    width: 110,
     bottom: 0,
-    left: 0,
-    position: 'absolute',
+    left: 20,
+    position: "absolute",
   },
 });
